@@ -67,3 +67,29 @@ int interpolation(int ar[], int n ,int key){
     }
     return -1;
 }
+
+//Array sorting
+int bubble(int ar[], int size){
+    int temp;
+    for(int i=0;i<size-1;i++){
+        for(int j=0;j<(size-1)-i;j++){
+            if(ar[j]>ar[j+1]){
+                temp=ar[j];
+                ar[j]=ar[j+1];
+                ar[j+1]=temp;
+            }
+        }
+    }
+}
+
+int insertion(int ar[], int size){
+    int temp;
+    for(int i=0;i<size;i++){
+        temp=ar[i];
+        int j=i-1;
+        for(j=j;(j>=0&&ar[j]>temp);j--){
+            ar[j+1]=ar[j];
+        }
+        ar[j+1]=temp;
+    }
+}
