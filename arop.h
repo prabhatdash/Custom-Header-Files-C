@@ -107,3 +107,28 @@ int selection(int arr[],int size){
     arr[i]=temp;
  }
 }
+
+void quick(int arr[], int start, int stop){
+   int p, q, pivot, temp;
+   if(start < stop){
+      pivot = start;
+      p = start;
+      q = stop;
+      while(p < q){
+         while(arr[p] <= arr[pivot] && p < stop)
+            p++;
+         while(arr[q] > arr[pivot])
+            q--;
+         if(p < q){
+            temp = arr[p];
+            arr[p] = arr[q];
+            arr[q] = temp;
+         }
+      }
+      temp = arr[pivot];
+      arr[pivot] = arr[q];
+      arr[q] = temp;
+      quick(arr, start, q-1);
+      quick(arr, q+1, stop);
+   }
+}
