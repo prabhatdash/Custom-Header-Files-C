@@ -132,3 +132,16 @@ void quick(int arr[], int start, int stop){
       quick(arr, q+1, stop);
    }
 }
+
+void shell(int ar[], int size){
+    int j; 
+    for(int gap=size/2;gap>0;gap=gap/2){
+        for(int i=gap;i<size;i++){
+            int temp=ar[i];
+            for(j=i;j>=gap && ar[j-gap]>temp;j=j-gap){
+                ar[j]=ar[j-gap];
+            }
+        ar[j]=temp;
+        }
+    }
+}
